@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Free cleaning business pricing calculator. Calculate job costs, break-even pricing, profit margins, and the right price to charge for cleaning services."
+    />
+    <meta property="og:title" content="Cleaning Business Pricing Calculator | Cleaning Profit Calculator" />
+    <meta property="og:description" content="Calculate cleaning job costs, break-even pricing, profit margins, and a recommended customer price—for free." />
+    <meta name="theme-color" content="#0b3b36" />
+    <title>Cleaning Business Pricing Calculator | Cleaning Profit Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell header-inner">
+        <a class="brand" href="#top" aria-label="Cleaning Profit Calculator home" data-i18n-aria-label="brandHomeAria">
+          <span class="brand-mark" aria-hidden="true">CP</span>
+          <span data-i18n="appName">Cleaning Profit Calculator</span>
+        </a>
+        <div class="header-actions">
+          <div class="language-switcher" role="group" aria-label="Language" data-i18n-aria-label="languageSelectorAria">
+            <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+            <span aria-hidden="true">|</span>
+            <button class="language-button" type="button" data-language="es" aria-pressed="false">ES</button>
+          </div>
+          <a class="header-link" href="#calculator"><span data-i18n="openCalculator">Open calculator</span> <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="page-shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> <span data-i18n="heroEyebrow">Built for independent cleaning businesses</span></p>
+            <h1 data-i18n="heroTitle">Know exactly what to charge for every cleaning job.</h1>
+            <p class="hero-lede" data-i18n="heroDescription">
+              Turn your real labor, supplies, overhead, and payment fees into a confident price that protects your profit.
+            </p>
+            <a class="button button-primary" href="#calculator">
+              <span data-i18n="calculateMyPrice">Calculate My Price</span> <span aria-hidden="true">↓</span>
+            </a>
+            <ul class="trust-list" aria-label="Calculator benefits" data-i18n-aria-label="benefitsAria">
+              <li><span aria-hidden="true">✓</span> <span data-i18n="benefitNoSignup">No sign-up</span></li>
+              <li><span aria-hidden="true">✓</span> <span data-i18n="benefitFree">Free to use</span></li>
+              <li><span aria-hidden="true">✓</span> <span data-i18n="benefitLocal">Your data stays on this device</span></li>
+            </ul>
+          </div>
+
+          <aside class="hero-card" aria-label="What a profitable price covers" data-i18n-aria-label="priceShouldCover">
+            <div class="hero-card-topline">
+              <span data-i18n="priceShouldCover">What your price should cover</span>
+              <span class="live-badge"><span></span> <span data-i18n="liveEstimate">Live estimate</span></span>
+            </div>
+            <div class="coverage-stack" aria-hidden="true">
+              <div class="coverage-row coverage-labor"><span data-i18n="labor">Labor</span><strong data-i18n="coreCost">Core cost</strong></div>
+              <div class="coverage-row coverage-materials"><span data-i18n="materialsTravel">Materials + travel</span><strong data-i18n="directCost">Direct cost</strong></div>
+              <div class="coverage-row coverage-overhead"><span data-i18n="businessOverhead">Business overhead</span><strong data-i18n="perJob">Per job</strong></div>
+              <div class="coverage-row coverage-profit"><span data-i18n="yourProfit">Your profit</span><strong data-i18n="protected">Protected</strong></div>
+            </div>
+            <p data-i18n="goodPricing">Good pricing pays the business and the owner.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="calculator-section" id="calculator">
+        <div class="page-shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="calculatorEyebrow">Your numbers, made simple</p>
+              <h2 data-i18n="calculatorTitle">Build a profitable quote</h2>
+            </div>
+            <p data-i18n="calculatorDescription">Enter your best estimates. Your pricing breakdown updates automatically as you make changes.</p>
+          </div>
+
+          <div class="calculator-layout">
+            <form class="calculator-form" id="calculatorForm" novalidate>
+              <section class="form-card" aria-labelledby="job-details-heading">
+                <div class="card-heading-row">
+                  <span class="step-number">01</span>
+                  <div>
+                    <h3 id="job-details-heading" data-i18n="jobDetails">Job Details</h3>
+                    <p data-i18n="jobDetailsDescription">Choose the service type and add optional property details for reference.</p>
+                  </div>
+                </div>
+
+                <div class="field-grid">
+                  <label class="field field-wide">
+                    <span data-i18n="serviceType">Service type</span>
+                    <select id="serviceType" name="serviceType"></select>
+                    <small class="field-help" id="serviceTypeHelp">Standard Cleaning uses a 1.00× complexity multiplier.</small>
+                  </label>
+
+                  <div class="subsection-label field-wide optional-context-label" data-i18n="optionalJobContext">Optional job context</div>
+
+                  <label class="field">
+                    <span data-i18n="propertySize">Property size</span>
+                    <span class="input-with-suffix"><input id="propertySize" name="propertySize" type="number" min="0" step="1" inputmode="decimal" /><span data-i18n="unitSqFt">sq ft</span></span>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="bedrooms">Bedrooms</span>
+                    <input id="bedrooms" name="bedrooms" type="number" min="0" step="1" inputmode="numeric" />
+                  </label>
+                  <label class="field">
+                    <span data-i18n="bathrooms">Bathrooms</span>
+                    <input id="bathrooms" name="bathrooms" type="number" min="0" step="0.5" inputmode="decimal" />
+                  </label>
+                </div>
+                <p class="context-note" data-i18n="propertyContext">Property details are saved as reference for the quote. Pricing is based on the labor time and actual business costs you enter below.</p>
+              </section>
+
+              <section class="form-card" aria-labelledby="labor-heading">
+                <div class="card-heading-row">
+                  <span class="step-number">02</span>
+                  <div>
+                    <h3 id="labor-heading" data-i18n="labor">Labor</h3>
+                    <p data-i18n="laborDescription">Include a fair hourly wage—even when you do the work yourself.</p>
+                  </div>
+                </div>
+                <div class="field-grid field-grid-three">
+                  <label class="field">
+                    <span data-i18n="hourlyWage">Hourly wage per worker</span>
+                    <span class="input-with-prefix"><span>$</span><input id="hourlyWage" name="hourlyWage" type="number" min="0" step="0.01" inputmode="decimal" /></span>
+                  </label>
+                  <label class="field">
+                    <span data-i18n="workers">Number of workers</span>
+                    <input id="workers" name="workers" type="number" min="1" step="1" inputmode="numeric" />
+                  </label>
+                  <label class="field">
+                    <span data-i18n="estimatedHours">Estimated cleaning hours</span>
+                    <span class="input-with-suffix"><input id="hours" name="hours" type="number" min="0" step="0.25" inputmode="decimal" /><span data-i18n="unitHours">hrs</span></span>
+                  </label>
+                </div>
+                <p class="validation-message" id="laborValidation" role="alert" hidden></p>
+                <div class="calculated-strip">
+                  <span><span data-i18n="laborCost">Labor Cost</span> <small data-i18n="laborFormulaShort">Wage × workers × hours</small></span>
+                  <strong id="laborCost">$0.00</strong>
+                </div>
+              </section>
+
+              <section class="form-card" aria-labelledby="variable-heading">
+                <div class="card-heading-row">
+                  <span class="step-number">03</span>
+                  <div>
+                    <h3 id="variable-heading" data-i18n="materialsVariable">Materials &amp; Variable Costs</h3>
+                    <p data-i18n="materialsDescription">Add every expense that changes from job to job.</p>
+                  </div>
+                </div>
+                <div class="field-grid">
+                  <label class="field"><span data-i18n="cleaningSupplies">Cleaning supplies</span><span class="input-with-prefix"><span>$</span><input id="supplies" name="supplies" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="travelFuel">Travel / fuel</span><span class="input-with-prefix"><span>$</span><input id="travel" name="travel" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="parking">Parking</span><span class="input-with-prefix"><span>$</span><input id="parking" name="parking" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="jobEquipment">Equipment allocated to this job</span><span class="input-with-prefix"><span>$</span><input id="jobEquipment" name="jobEquipment" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field field-wide"><span data-i18n="otherVariable">Other variable costs</span><span class="input-with-prefix"><span>$</span><input id="otherVariable" name="otherVariable" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                </div>
+                <div class="calculated-strip">
+                  <span data-i18n="totalVariableCosts">Total Variable Costs</span>
+                  <strong id="variableCosts">$0.00</strong>
+                </div>
+              </section>
+
+              <section class="form-card" aria-labelledby="overhead-heading">
+                <div class="card-heading-row">
+                  <span class="step-number">04</span>
+                  <div>
+                    <h3 id="overhead-heading" data-i18n="businessOverhead">Business Overhead</h3>
+                    <p data-i18n="overheadDescription">Spread recurring monthly expenses across the jobs you expect to complete.</p>
+                  </div>
+                </div>
+                <div class="subsection-label" data-i18n="monthlyExpenses">Monthly expenses</div>
+                <div class="field-grid compact-grid">
+                  <label class="field"><span data-i18n="insurance">Insurance</span><span class="input-with-prefix"><span>$</span><input id="insurance" name="insurance" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="software">Software</span><span class="input-with-prefix"><span>$</span><input id="software" name="software" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="phone">Phone</span><span class="input-with-prefix"><span>$</span><input id="phone" name="phone" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="marketing">Marketing</span><span class="input-with-prefix"><span>$</span><input id="marketing" name="marketing" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="vehicle">Vehicle</span><span class="input-with-prefix"><span>$</span><input id="vehicle" name="vehicle" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="equipment">Equipment</span><span class="input-with-prefix"><span>$</span><input id="monthlyEquipment" name="monthlyEquipment" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="officeStorage">Office / storage</span><span class="input-with-prefix"><span>$</span><input id="office" name="office" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                  <label class="field"><span data-i18n="otherMonthly">Other monthly expenses</span><span class="input-with-prefix"><span>$</span><input id="otherMonthly" name="otherMonthly" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                </div>
+                <label class="field jobs-field">
+                  <span data-i18n="expectedJobs">Expected number of jobs per month</span>
+                  <input id="jobsPerMonth" name="jobsPerMonth" type="number" min="1" step="1" inputmode="numeric" />
+                </label>
+                <p class="validation-message" id="overheadValidation" role="alert" hidden></p>
+                <div class="calculated-strip split-strip">
+                  <span><span data-i18n="monthlyOverhead">Monthly Overhead</span> <strong id="monthlyOverhead">$0.00</strong></span>
+                  <span><span data-i18n="overheadPerJob">Overhead Per Job</span> <strong id="overheadPerJob">$0.00</strong></span>
+                </div>
+              </section>
+
+              <div class="target-grid">
+                <section class="form-card target-card" aria-labelledby="fees-heading">
+                  <div class="card-heading-row">
+                    <span class="step-number">05</span>
+                    <div><h3 id="fees-heading" data-i18n="paymentFees">Payment Fees</h3><p data-i18n="paymentFeesDescription">Card or online payment processing.</p></div>
+                  </div>
+                  <label class="field">
+                    <span data-i18n="processingFee">Payment processing fee</span>
+                    <span class="input-with-suffix"><input id="paymentFee" name="paymentFee" type="number" min="0" max="99" step="0.1" inputmode="decimal" /><span>%</span></span>
+                  </label>
+                </section>
+
+                <section class="form-card target-card" aria-labelledby="profit-heading">
+                  <div class="card-heading-row">
+                    <span class="step-number">06</span>
+                    <div><h3 id="profit-heading" data-i18n="desiredProfit">Desired Profit</h3><p data-i18n="desiredProfitDescription">Your target margin on the final price.</p></div>
+                  </div>
+                  <label class="field">
+                    <span data-i18n="desiredMargin">Desired profit margin</span>
+                    <span class="input-with-suffix"><input id="desiredMargin" name="desiredMargin" type="number" min="0" max="99" step="0.5" inputmode="decimal" /><span>%</span></span>
+                  </label>
+                </section>
+              </div>
+              <p class="validation-message target-validation" id="targetValidation" role="alert" hidden></p>
+
+              <button class="button button-secondary" id="resetCalculator" type="button" data-i18n="resetCalculator">Reset Calculator</button>
+            </form>
+
+            <aside class="results-card" aria-labelledby="pricing-breakdown-heading">
+              <div class="results-header">
+                <div>
+                  <p class="eyebrow" data-i18n="liveEstimate">Live estimate</p>
+                  <h2 id="pricing-breakdown-heading" data-i18n="pricingBreakdown">Your Pricing Breakdown</h2>
+                </div>
+                <span class="saved-status" id="savedStatus" data-i18n="saved">Saved</span>
+              </div>
+
+              <div class="result-unavailable" id="resultUnavailable" role="status" hidden>
+                Add valid labor, overhead, and pricing targets to see your quote.
+              </div>
+
+              <div class="result-content" id="resultContent" aria-live="polite">
+                <div class="break-even-block">
+                  <span data-i18n="breakEvenPrice">Break-Even Price</span>
+                  <strong id="breakEvenPrice">$0.00</strong>
+                  <small data-i18n="breakEvenWarning">Charging below this means you are losing money.</small>
+                </div>
+                <div class="recommended-block">
+                  <span data-i18n="recommendedPrice">Recommended Price</span>
+                  <strong id="recommendedPrice">$0.00</strong>
+                  <small id="recommendedContext">Standard Cleaning · 1.00× complexity</small>
+                </div>
+                <a class="result-offer-cta" href="#personalized-pricing">
+                  <span data-i18n="resultOfferPrompt">Need help setting your exact rates?</span>
+                  <strong data-i18n="resultOfferLink">Get a personalized pricing setup →</strong>
+                </a>
+                <div class="result-row"><span data-i18n="estimatedProfit">Estimated Profit</span><strong class="positive" id="estimatedProfit">$0.00</strong></div>
+                <div class="result-row"><span data-i18n="profitMargin">Profit Margin</span><strong id="profitMargin">0.0%</strong></div>
+                <div class="result-row"><span data-i18n="revenueLaborHour">Revenue / Labor Hour</span><strong id="revenuePerHour">$0.00</strong></div>
+                <div class="result-row result-total"><span data-i18n="totalJobCost">Total Job Cost</span><strong id="totalJobCost">$0.00</strong></div>
+
+                <details class="cost-details">
+                  <summary data-i18n="viewCostBreakdown">View cost breakdown</summary>
+                  <div><span data-i18n="labor">Labor</span><strong id="costLabor">$0.00</strong></div>
+                  <div><span data-i18n="variableCosts">Variable costs</span><strong id="costVariable">$0.00</strong></div>
+                  <div><span data-i18n="overheadPerJob">Overhead per job</span><strong id="costOverhead">$0.00</strong></div>
+                  <div><span data-i18n="feeAtRecommended">Payment fee at recommended price</span><strong id="processingFeeAmount">$0.00</strong></div>
+                </details>
+              </div>
+            </aside>
+          </div>
+
+          <section class="packages-section" aria-labelledby="packages-heading">
+            <div class="packages-heading-row">
+              <div>
+                <p class="eyebrow" data-i18n="suggestedOptions">Suggested options</p>
+                <h2 id="packages-heading" data-i18n="pricingPackages">Pricing Packages</h2>
+              </div>
+              <p data-i18n="packagesDescription">Use these as starting points for a tiered quote. Adjust the scope of work to match each package.</p>
+            </div>
+            <div class="package-grid" id="packageGrid">
+              <article class="package-card">
+                <span class="package-name" data-i18n="packageBasic">Basic</span>
+                <strong id="basicPrice">$0</strong>
+                <p data-i18n="packageBasicDescription">About 90% of your recommended price for a lighter scope.</p>
+              </article>
+              <article class="package-card package-featured">
+                <span class="popular-pill" data-i18n="recommended">Recommended</span>
+                <span class="package-name" data-i18n="packageStandard">Standard</span>
+                <strong id="standardPrice">$0</strong>
+                <p data-i18n="packageStandardDescription">Your full recommended price for the planned scope.</p>
+              </article>
+              <article class="package-card">
+                <span class="package-name" data-i18n="packagePremium">Premium</span>
+                <strong id="premiumPrice">$0</strong>
+                <p data-i18n="packagePremiumDescription">About 120% of your recommended price for added value.</p>
+              </article>
+            </div>
+            <p class="package-disclaimer" data-i18n="packageDisclaimer">Suggested package prices are rounded for presentation. Confirm that the included services justify each price.</p>
+          </section>
+        </div>
+      </section>
+
+      <section class="offer-section" id="personalized-pricing" aria-labelledby="offer-heading">
+        <div class="page-shell offer-card">
+          <div class="offer-copy">
+            <p class="eyebrow" id="offerProductName">Personalized Pricing Setup</p>
+            <h2 id="offer-heading" data-i18n="offerHeadline">Want pricing built around your actual business?</h2>
+            <p data-i18n="offerDescription">Get a personalized pricing setup based on your labor costs, overhead, services and profit goals.</p>
+          </div>
+          <div class="offer-details">
+            <p class="offer-includes-label" data-i18n="offerIncludes">What your setup includes</p>
+            <ul class="offer-feature-list">
+              <li data-i18n="offerFeatureStructure">Personalized pricing structure</li>
+              <li data-i18n="offerFeatureMinimums">Recommended minimum rates</li>
+              <li data-i18n="offerFeatureMargins">Profit-margin targets</li>
+              <li data-i18n="offerFeatureServices">Service pricing recommendations</li>
+              <li data-i18n="offerFeatureOverhead">Overhead allocation</li>
+              <li data-i18n="offerFeatureReview">Pricing review for your current services</li>
+            </ul>
+            <div class="offer-purchase">
+              <strong class="offer-price" id="offerPrice">$19 Launch Price</strong>
+              <a class="button offer-button" id="purchaseCta" aria-disabled="true">
+                <span data-i18n="offerCta">Get My Personalized Pricing Setup</span>
+              </a>
+              <p class="checkout-status" id="checkoutStatus" data-i18n="checkoutSoon">Checkout opening soon</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="goal-section" id="monthly-goal">
+        <div class="page-shell goal-grid">
+          <div class="goal-copy">
+            <p class="eyebrow" data-i18n="goalEyebrow">Plan beyond the next job</p>
+            <h2 data-i18n="goalTitle">Monthly Goal Calculator</h2>
+            <p data-i18n="goalDescription">See how many jobs you need to book to reach your monthly profit target.</p>
+          </div>
+          <form class="goal-card" id="goalForm" novalidate>
+            <div class="goal-inputs">
+              <label class="field"><span data-i18n="desiredMonthlyProfit">Desired monthly profit</span><span class="input-with-prefix"><span>$</span><input id="monthlyProfitGoal" type="number" min="0" step="1" inputmode="decimal" /></span></label>
+              <div class="goal-average-field">
+                <label class="field"><span data-i18n="averageProfitJob">Average profit per job</span><span class="input-with-prefix"><span>$</span><input id="averageProfitPerJob" type="number" min="0" step="0.01" inputmode="decimal" /></span></label>
+                <button class="sync-estimate-button" id="useCurrentEstimate" type="button" data-i18n="useCurrentEstimate">Use current estimate</button>
+              </div>
+            </div>
+            <div class="goal-results" aria-live="polite">
+              <div><strong id="jobsRequiredMonth">40</strong><span data-i18n="jobsMonth">jobs / month</span></div>
+              <div><strong id="jobsRequiredWeek">~10</strong><span data-i18n="jobsWeek">jobs / week</span></div>
+            </div>
+            <p class="validation-message" id="goalValidation" role="alert" hidden></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="early-access-section">
+        <div class="page-shell early-access-card">
+          <div class="early-copy">
+            <p class="eyebrow" data-i18n="comingNext">Coming next</p>
+            <h2 data-i18n="advancedTitle">Want a more advanced version?</h2>
+            <p data-i18n="advancedDescription">Join the early-access list for future tools designed to help you price, quote, and manage your cleaning business.</p>
+            <ul class="feature-list">
+              <li data-i18n="featureSavedJobs">Saved jobs</li>
+              <li data-i18n="featureQuoteGenerator">Client quote generator</li>
+              <li data-i18n="featureRecurringPricing">Recurring cleaning pricing</li>
+              <li data-i18n="featurePrintableEstimates">Printable estimates</li>
+              <li data-i18n="featureCustomRules">Custom pricing rules</li>
+              <li data-i18n="featureDashboard">Business dashboard</li>
+            </ul>
+          </div>
+          <form class="lead-form" id="leadForm" novalidate>
+            <label class="field" for="emailAddress"><span><span data-i18n="emailAddress">Email address</span> <small data-i18n="optional">(optional)</small></span></label>
+            <div class="lead-controls">
+              <input id="emailAddress" type="email" autocomplete="email" placeholder="you@business.com" data-i18n-placeholder="emailPlaceholder" aria-describedby="leadPrivacy leadMessage" />
+              <button class="button button-primary" type="submit" data-i18n="getEarlyAccess">Get Early Access</button>
+            </div>
+            <p id="leadPrivacy" data-i18n="leadPrivacy">Prototype only: your email is saved on this device and is not sent to a server.</p>
+            <p class="lead-message" id="leadMessage" role="status" hidden></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell footer-inner">
+        <div class="brand footer-brand"><span class="brand-mark" aria-hidden="true">CP</span><span data-i18n="appName">Cleaning Profit Calculator</span></div>
+        <p data-i18n="disclaimer">This calculator provides pricing estimates for educational and business planning purposes. Actual costs, taxes, wages and business expenses may vary.</p>
+      </div>
+    </footer>
+
+    <noscript><p class="noscript-message">JavaScript is required to calculate and save your pricing estimate.</p></noscript>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
