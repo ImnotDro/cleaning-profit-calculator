@@ -76,15 +76,15 @@ The commercial offer is centralized near the top of `script.js` in `APP_CONFIG.c
 ```js
 commercialOffer: {
   productName: {
-    en: "Personalized Pricing Setup",
-    es: "Configuración Personalizada de Precios",
+    en: "Cleaning Business Pricing Toolkit",
+    es: "Cleaning Business Pricing Toolkit",
   },
   priceUsd: 19,
   purchaseUrl: "",
 }
 ```
 
-Change `priceUsd` for the displayed launch price. Edit the two `productName` values when renaming the product. Paste the complete Gumroad checkout URL into `purchaseUrl`; the CTA will immediately become an active link and the “checkout opening soon” notice will disappear. While the URL is empty, the CTA remains visibly prepared but cannot navigate to a broken checkout.
+Change `priceUsd` for the displayed launch price. Edit the two `productName` values when renaming the digital product. Paste the complete Gumroad checkout URL into `purchaseUrl`; the toolkit CTA will immediately become an active link and the “checkout opening soon” notice will disappear. While the URL is empty, the CTA remains visibly prepared but cannot navigate to a broken checkout.
 
 ## Monthly goal synchronization
 

@@ -200,6 +200,7 @@ button, input, select { font: inherit; }
 .offer-feature-list li { display: flex; align-items: flex-start; gap: 8px; }
 .offer-feature-list li::before { content: "✓"; flex: 0 0 auto; color: var(--mint-strong); font-weight: 900; }
 .offer-purchase { display: grid; gap: 11px; margin-top: 25px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); }
+.offer-delivery { color: rgba(255,255,255,.72); font-size: 10px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
 .offer-price { color: var(--mint-strong); font-size: 25px; letter-spacing: -.025em; }
 .offer-button { width: 100%; min-height: 52px; color: var(--brand-dark); background: var(--mint-strong); box-shadow: none; }
 .offer-button[href]:hover { background: #b2ebd1; transform: translateY(-1px); }
