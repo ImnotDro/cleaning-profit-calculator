@@ -1047,3 +1047,20 @@ window.PricingEngine = Object.freeze({
 });
 
 initializeApp();
+// Track clicks from the free calculator to Gumroad
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+
+  if (!link) return;
+
+  const href = link.href || "";
+
+  if (href.includes("gumroad.com")) {
+    if (typeof gtag === "function") {
+      gtag("event", "gumroad_click", {
+        event_category: "conversion",
+        event_label: href,
+      });
+    }
+  }
+});
