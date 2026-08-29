@@ -986,7 +986,9 @@ function setLeadMessage(messageKey, isError = false) {
 function bindLeadForm() {
   const form = byId("leadForm");
   const emailInput = byId("emailAddress");
-
+  
+if (!form || !emailInput) return;
+  
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const email = emailInput.value.trim();
